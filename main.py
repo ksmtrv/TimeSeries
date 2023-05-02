@@ -38,8 +38,8 @@ def plotPACF(df):
     plt.show()
 
 
+# Моделирование модели скользящего среднего (MA)
 def plotMA(df):
-    # Моделирование модели скользящего среднего (MA)
     ma_model = sm.tsa.ARIMA(df['Temperature'], order=(0, 0, 1))
     ma_results = ma_model.fit()
     plt.figure(figsize=(10, 6))
@@ -52,8 +52,8 @@ def plotMA(df):
     plt.show()
 
 
+#Моделирование авторегрессионной модели (AR)
 def plotAR(df):
-    #Моделирование авторегрессионной модели (AR)
     ar_model = sm.tsa.ARIMA(df['Temperature'], order=(1, 0, 0))
     ar_results = ar_model.fit()
     plt.figure(figsize=(10, 6))
@@ -66,8 +66,8 @@ def plotAR(df):
     plt.show()
 
 
+# Моделирование модели ARMA
 def plotARMA(df):
-    # Моделирование модели ARMA
     arma_model = sm.tsa.ARIMA(df['Temperature'], order=(1, 0, 1))
     arma_results = arma_model.fit()
     plt.figure(figsize=(10, 6))
@@ -82,10 +82,10 @@ def plotARMA(df):
 
 if __name__ == '__main__':
     df = readFile()
-    # plotTimeSeries(df)
-    # plotACF(df)
-    # plotPACF(df)
-    plotAR(df)
-    plotMA(df)
+    plotTimeSeries(df)
+    plotACF(df)
+    plotPACF(df)
+    # plotAR(df)
+    # plotMA(df)
     plotARMA(df)
 
